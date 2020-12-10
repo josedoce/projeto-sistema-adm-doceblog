@@ -1,0 +1,27 @@
+ <!-- Modal -->
+ <div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Editar Categoria</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <form class="form-em-linha" action="/admin/categoria/editar?_method=PUT" method="POST">
+          <div class="modal-body">
+            <label>Categoria Atual</label>
+            <input class="editar-fulano" type="hidden" name="editeId">
+            <input class="form-control editar-fulano" disabled type="text">
+            <label>Edite a Categoria</label>
+            <input class="form-control"  type="text" name="editeConteudo" placeholder="Ex: Programação asincrona">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-success">Editar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

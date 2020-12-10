@@ -1,0 +1,27 @@
+ <!-- Modal -->
+ <div class="modal fade" id="modalExcluir" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Confirmar Exclusão de Categoria</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <form class="form-em-linha" action="/admin/categoria/deletar?_method=DELETE" method="POST">
+          <div class="modal-body">
+            <input class="modelExluir" type="hidden" name="deletar">
+            <label>Você quer mesmo excluir: </label>
+            <input class="modelExluir form-control" disabled type="text">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Não quero excluir</button>
+            <button type="submit" class="btn btn-success btn-sm">Sim, desejo excluir</button>
+          </div>
+        </form>
+
+
+      </div>
+    </div>
+  </div>

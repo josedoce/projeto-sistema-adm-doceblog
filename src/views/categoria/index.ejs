@@ -1,0 +1,41 @@
+<%- include('../partials/head.ejs') %>
+<body>
+    <%- include('../partials/navbar.ejs') %>
+    <div class="container">
+      <!-- models -->
+      <%- include('../partials/modalCategoria/modalEditar.ejs') %>
+      <%- include('../partials/modalCategoria/modalExcluir.ejs') %>
+      <!-- models -->
+      <br>
+      <h2>lista de categorias</h2>
+      <br>
+      <a href="/admin/categorias/novo"><button class="btn btn-primary btn-sm">Criar Categorias</button></a>
+      <a href="/admin/artigo/novo"><button class="btn btn-primary btn-sm">Criar Artigos</button></a>
+      <hr>
+      <table class="table bg-light table-hover table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Slug</th>
+            <th scope="col">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+            <%categoria.forEach((item)=>{%>
+                <tr>
+                    <th scope="row"><%=item.id%></th>
+                    <td><%=item.titulo%></td>
+                    <td><%=item.slug%></td>
+                    <td>
+                        <a href="/admin/artigos/<%=item.id%>"><button class="btn btn-info btn-sm">artigos</button></a>
+                        <button onclick="setarModalEditar('<%=item.id%>','<%=item.titulo%>')" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modalEditar">editar</button>
+                        <button onclick="setarModalExcluir('<%=item.id%>','<%=item.titulo%>')" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalExcluir">excluir</button>
+                    </td>
+                </tr>
+            <%})%>
+        </tbody>
+      </table>
+    </div>
+</body>
+<%- include('../partials/rodape.ejs') %>

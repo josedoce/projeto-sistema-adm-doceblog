@@ -1,0 +1,21 @@
+slugfy, pacote otimizador de string para rotas
+com o pacote method-override, poderei usar os metodos put e delete no navegador. e defininir _metrhod=DELETE
+biblioteca tinyMCE é boa para edição de textos no html https://www.tiny.cloud/get-tiny/self-hosted/
+configurando o tempo no sequelize(obrigatorio) [
+    definindo a timezone no arquivo de conexao.js
+    const conexao = new Sequelize('blog_com_gerenciamento', 'root', 'gatomolhado',{
+    host: 'localhost',
+    dialect: 'mysql',
+    timezone: '-03:00'
+});
+
+]
+
+não use criptografia, pois podera ser desfeita, use hash para criptografar senhas e autorizações
+pacote 
+npm install bcryptjs
+
+para trabalhar com sessões no express necessita do express-session
+npm install session
+
+uso do sqlite3

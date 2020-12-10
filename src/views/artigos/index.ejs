@@ -1,0 +1,50 @@
+<%- include('../partials/head.ejs') %>
+  <script src="/tinymce/js/tinymce/tinymce.min.js"></script>
+  <script>tinymce.init({selector:'textarea'});</script>
+<body onload="">
+    <%- include('../partials/navbar.ejs') %>
+    <div class="container">
+      <!-- models -->
+      <%- include('../partials/modalArtigos/modalEditar.ejs') %>
+      <%- include('../partials/modalArtigos/modalExcluir.ejs') %>
+      <!-- models -->
+      <br>
+      <h2>Lista de Artigos relacionados a: <%=cate.titulo%></h2>
+      <br>
+      <a href="/admin/categorias/novo"><button class="btn btn-primary btn-sm">Criar Categorias</button></a>
+      <a href="/admin/artigo/novo"><button class="btn btn-primary btn-sm">Criar Artigos</button></a>
+      <button class="btn btn-light btn-sm">numero de itens: <%=numeros%></button>
+     
+      <hr>
+      <table class="table bg-light table-hover table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Slug</th>
+            <th scope="col">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+            <%artigos.forEach((item)=>{%>
+                <tr>
+                  <%if(item.id=='null'){%>
+                    <td  colspan="4">Nenhum artigo com esta categoria foi encontrado!</td>
+                  <%}else{%>
+                    <th scope="row"><%=item.id%></th>
+                    <td><%=item.titulo%></td>
+                    <td><%=item.slug%></td>
+                    <td>
+                        <a href="/ler/<%=item.slug%>"><button class="btn btn-info btn-sm">Ver Artigo</button></a>
+                        <a href="/admin/artigo/texto/<%=item.id%>"><button class="btn btn-success btn-sm">editar</button></a>
+                        <button onclick="setarModalExcluir('<%=item.id%>','<%=item.titulo%>')" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalExcluir">excluir</button>
+                    </td>
+                  <%}%>
+                </tr>
+                
+            <%})%>
+        </tbody>
+      </table>
+    </div>
+</body>
+<%- include('../partials/rodape.ejs') %>

@@ -1,0 +1,52 @@
+<%- include('../partials/head.ejs') %>
+<body>
+    <%- include('../partials/navbar.ejs') %>
+    <div class="container">
+      <!-- models -->
+      <%- include('../partials/modalArtigos/modalEditar.ejs') %>
+      <%- include('../partials/modalArtigos/modalExcluir.ejs') %>
+      <!-- models -->
+      <br>
+      <h2>Lista de Usuarios</h2>
+      <br>
+      <hr>
+      <table class="table bg-light table-hover table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Usuario</th>
+            <th scope="col">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+            <%usuarios.forEach((item)=>{%>
+                <tr>
+                  <%if(item.id=='null'){%>
+                    <td  colspan="4">Nenhum artigo com esta categoria foi encontrado!</td>
+                  <%}else{%>
+                    <th scope="row"><%=item.id%></th>
+                    <td><%=item.email%></td>
+                    <td>
+                        <div class="btn-group">
+                            <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              ações
+                            </button>
+                            <div class="dropdown-menu">
+                                <form action="/adm/delete/usuario?_method=DELETE" method="POST">
+                                    <input type="hidden" name="idusuario" value="<%=item.id%>">
+                                    <button class="dropdown-item" href="#">excluir usuario</button>
+                                </form>
+
+                                
+                            </div>
+                          </div>
+                    </td>
+                  <%}%>
+                </tr>
+                
+            <%})%>
+        </tbody>
+      </table>
+    </div>
+</body>
+<%- include('../partials/rodape.ejs') %>

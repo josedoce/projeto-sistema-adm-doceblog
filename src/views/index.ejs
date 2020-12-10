@@ -1,0 +1,32 @@
+<%- include('partials/head.ejs') %>
+<body>
+    <%- include('partials/navbar.ejs') %>
+    <div class="container">
+        <br>
+        <div class="jumbotron">
+            <h1 class="display-4">Bem vindo ao doceblog</h1>
+            <p class="lead">Este blog foi criado com o intuito de aprendizado, nenhum dado aqui é real, toda semelhança é mera coincidência.</p>
+            <hr class="my-4">
+            <p>Veja todos os meus projetos no github, se gostou desse :) </p>
+            <a class="btn btn-primary btn-lg" href="https://github.com/josedoce" role="button">github</a>
+          </div>
+        <%conteudo.forEach((valor)=>{%>
+            <br>
+            <div class="card">
+                <div class="card-header">
+                <span><%=valor.categoria.titulo%></span>
+                </div>
+                <div class="card-body">
+                <h5 class="card-title"><%=valor.titulo%></h5>
+                
+                <a href="/ler/<%=valor.slug%>" class="btn btn-primary">ler artigo</a>
+                </div>
+            </div>
+        <%})%>
+        <br>
+        <a href="/pages"><button class="btn btn-primary">ver todos os artigos</button></a>
+        <br>
+        <br>
+    </div>
+</body>
+<%- include('partials/rodape.ejs') %>

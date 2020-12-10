@@ -1,0 +1,16 @@
+<%- include('../partials/head.ejs') %>
+<body>
+    <%- include('../partials/navbar.ejs') %>
+    <div class="container">
+        <br>
+        <div class="card">
+            <div class="card-header">
+                <h4><%=conteudo.titulo%></h4>
+            </div>
+            <div class="card-body">
+                <%-conteudo.corpo%>
+            </div>
+        </div>
+    </div>
+</body>
+<%- include('../partials/rodape.ejs') %>
