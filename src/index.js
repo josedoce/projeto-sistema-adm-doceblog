@@ -37,4 +37,4 @@ app.use('/', artigosController);
 app.use('/', loginController);
 app.use('/', notFoundController); //esse controller deve estar sempre por ultimo
 
-app.listen(PORT);
+app.listen(PORT,() => console.log(`Rodando na ${ PORT }`));
