@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const methodOverride = require('method-override');
 const session = require('express-session');
+const PORT = process.env.PORT || 5000;
 
 //controllers
 const categoriasController = require('./controllers/CategoriasController');
@@ -36,4 +37,4 @@ app.use('/', artigosController);
 app.use('/', loginController);
 app.use('/', notFoundController); //esse controller deve estar sempre por ultimo
 
-app.listen(3333);
+app.listen(PORT);
