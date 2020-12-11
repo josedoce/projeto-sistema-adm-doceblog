@@ -52,7 +52,7 @@ rota.get('/registro/:erro?', async(req, res)=>{
         erro: erro
     })
 })
-rota.post('/registro/save', async(req, res)=>{
+rota.post('/registro/save',areaAdmin, async(req, res)=>{
     const {email, senha} = req.body;
 
     if(email=='' || senha ==''){
